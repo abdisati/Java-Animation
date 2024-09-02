@@ -22,7 +22,8 @@ public class MyPanel extends JPanel implements ActionListener {
         this.setBackground(Color.black);
 
         enemy = new ImageIcon("UFO.png").getImage();
-        timer = new Timer(1000, this);
+        timer = new Timer(10, this);
+        timer.start();
     }
 
     public void paint(Graphics g) {
@@ -37,6 +38,17 @@ public class MyPanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        // if (x >= PANEL_WIDTH - enemy.getWidth(null) || x < 0) {
+        // xVelocity = xVelocity * -1;
+        // }
+        // x = x + xVelocity;
+        // repaint();
+
+        if (y >= PANEL_HEIGHT - enemy.getWidth(null) || y < 0) {
+            yVelocity = yVelocity * -1;
+        }
+        y = y + yVelocity;
+        repaint();
     }
 
 }
